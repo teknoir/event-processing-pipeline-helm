@@ -1,0 +1,43 @@
+streams: []
+
+# Values possible for Event Processing Pipelines
+defaults:
+  debugLevel: INFO
+  clientId: epp
+  domain: teknoir.cloud
+
+  image:
+    repository: us-docker.pkg.dev/teknoir/gcr.io/observatory-event-processing
+    tag: feature-line-crossing-cloud-stream-6afbeda
+
+  # Application identification
+  appName: event-processing-pipeline-app
+  appVersion: 0.0.1
+
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 2048Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+  mqtt:
+    # MQTT broker
+    broker: mqtt
+    port: 1883
+    qos: 2
+    keepAliveInterval: 10
+    connectRetryInterval: 10
+    # Topics
+    topicAllDevicesEvents: "/devices/+/events/#"
+    topicDevicesEventsAlerts: "/devices/+/events/alerts"
+    topicDevicesEventsStaleAlerts: "/devices/+/events/stale-alerts"
+    topicDevicesEventsMovements: "/devices/+/events/movements"
+
+  triton:
+    uri: triton:8001
+
+  mongodbSecretKeyRef:
+    name: mongodb-credentials
+    key: service_uri

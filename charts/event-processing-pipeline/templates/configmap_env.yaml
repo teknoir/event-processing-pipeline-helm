@@ -1,0 +1,42 @@
+{{- range .Values.streams }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: stream-{{ .stream }}-env-config
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app: stream-{{ .stream }}
+  annotations:
+    {{- toYaml (default $.Values.defaults.annotations .annotations) | nindent 4 }}
+data:
+  # General
+  STREAM: "{{ .stream }}"
+  DEBUG_LEVEL: "{{ default $.Values.defaults.debugLevel .debugLevel }}"
+  CLIENT_ID: "stream-{{ .stream }}"
+
+  # Labels
+  LABEL_NAMESPACE: "{{ $.Release.Namespace }}"
+  LABEL_DOMAIN: "{{ default $.Values.defaults.domain .domain }}"
+
+  # Application identification
+  APP_NAME: "{{ default $.Values.defaults.appName .appName }}"
+  APP_VERSION: "{{ default $.Values.defaults.appVersion .appVersion }}"
+
+  # MQTT
+  MQTT_SERVICE_HOST: "{{ default $.Values.defaults.mqtt.broker (default (dict "broker" $.Values.defaults.mqtt.broker) .mqtt).broker }}"
+  MQTT_SERVICE_PORT: "{{ default $.Values.defaults.mqtt.port (default (dict "port" $.Values.defaults.mqtt.port) .mqtt).port }}"
+  QOS: "{{ default $.Values.defaults.mqtt.qos (default (dict "qos" $.Values.defaults.mqtt.qos) .mqtt).qos }}"
+  KEEP_ALIVE_INTERVAL: "{{ default $.Values.defaults.mqtt.keepAliveInterval (default (dict "keepAliveInterval" $.Values.defaults.mqtt.keepAliveInterval) .mqtt).keepAliveInterval }}"
+  CONNECT_RETRY_INTERVAL: "{{ default $.Values.defaults.mqtt.connectRetryInterval (default (dict "connectRetryInterval" $.Values.defaults.mqtt.connectRetryInterval) .mqtt).connectRetryInterval }}"
+
+  # TOPICS
+  MQTT_TOPIC_DEVICES_ALL_EVENTS: "{{ default $.Values.defaults.mqtt.topicAllDevicesEvents (default (dict "topicAllDevicesEvents" $.Values.defaults.mqtt.topicAllDevicesEvents) .mqtt).topicAllDevicesEvents }}"
+  MQTT_TOPIC_DEVICES_EVENTS_ALERTS: "{{ default $.Values.defaults.mqtt.topicDevicesEventsAlerts (default (dict "topicDevicesEventsAlerts" $.Values.defaults.mqtt.topicDevicesEventsAlerts) .mqtt).topicDevicesEventsAlerts }}"
+  MQTT_TOPIC_DEVICES_EVENTS_STALE_ALERTS: "{{ default $.Values.defaults.mqtt.topicDevicesEventsStaleAlerts (default (dict "topicDevicesEventsStaleAlerts" $.Values.defaults.mqtt.topicDevicesEventsStaleAlerts) .mqtt).topicDevicesEventsStaleAlerts }}"
+  MQTT_TOPIC_DEVICES_EVENTS_MOVEMENTS: "{{ default $.Values.defaults.mqtt.topicDevicesEventsMovements (default (dict "topicDevicesEventsMovements" $.Values.defaults.mqtt.topicDevicesEventsMovements) .mqtt).topicDevicesEventsMovements }}"
+
+  # Triton Inference Server
+  TRITON_SERVER_URL: "{{ default $.Values.defaults.triton.uri (default (dict "uri" $.Values.defaults.triton.uri) .triton).uri }}"
+
+{{- end }}
