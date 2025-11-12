@@ -3,6 +3,16 @@ entries:
   event-processing-pipeline:
   - apiVersion: v2
     appVersion: 2.0.1
+    created: "2025-11-12T15:02:55.51362708Z"
+    description: A Helm chart for Event Processing Pipeline
+    digest: 992271c59f641700bae95a9c9ecf837e5a03e6b56b2077b7350985d49ff8bf5b
+    name: event-processing-pipeline
+    type: application
+    urls:
+    - https://github.com/teknoir/event-processing-pipeline-helm/releases/download/event-processing-pipeline-0.0.1/event-processing-pipeline-0.0.1.tgz
+    version: 0.0.1
+  - apiVersion: v2
+    appVersion: 2.0.1
     created: "2025-11-12T14:48:07.997861724Z"
     description: A Helm chart for Event Processing Pipeline
     digest: 18238737957f3ca77125353d1c2ec5a9d34a5c0d5f174a047902e99ab24b21fb
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://github.com/teknoir/event-processing-pipeline-helm/releases/download/event-processing-pipeline-0.0.1-alpha.1/event-processing-pipeline-0.0.1-alpha.1.tgz
     version: 0.0.1-alpha.1
-generated: "2025-11-12T14:48:07.997877463Z"
+generated: "2025-11-12T15:02:55.513643912Z"
