@@ -18,6 +18,7 @@ spec:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configmap_env.yaml") $ | sha256sum }}
     spec:
+      serviceAccountName: "{{ default $.Values.defaults.serviceAccountName .serviceAccountName }}"
       containers:
         - name: {{ .stream }}
           image: "{{ default $.Values.defaults.image.repository (default (dict "repository" $.Values.defaults.image.repository) .image).repository }}:{{ default $.Values.defaults.image.tag (default (dict "tag" $.Values.defaults.image.tag) .image).tag }}"
