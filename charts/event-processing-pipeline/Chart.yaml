@@ -3,5 +3,5 @@ name: event-processing-pipeline
 description: A Helm chart for Event Processing Pipeline
 
 type: application
-version: 0.0.2
+version: 0.0.3
 appVersion: "2.0.1"
