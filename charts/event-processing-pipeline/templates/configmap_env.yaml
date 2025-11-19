@@ -24,6 +24,8 @@ data:
   APP_VERSION: "{{ default $.Values.defaults.appVersion .appVersion }}"
 
   # Instructor
+  INSTRUCTOR_GCP_PROJECT: "{{ default $.Values.defaults.instructor.gcpProject (default (dict "gcpProject" $.Values.defaults.instructor.gcpProject) .instructor).gcpProject }}"
+  INSTRUCTOR_GCP_LOCATION: "{{ default $.Values.defaults.instructor.gcpLocation (default (dict "gcpLocation" $.Values.defaults.instructor.gcpLocation) .instructor).gcpLocation }}"
   INSTRUCTOR_MODEL: "{{ default $.Values.defaults.instructor.model (default (dict "model" $.Values.defaults.instructor.model) .instructor).model }}"
   INSTRUCTOR_PROMPT: "{{ default $.Values.defaults.instructor.prompt (default (dict "prompt" $.Values.defaults.instructor.prompt) .instructor).prompt }}"
 

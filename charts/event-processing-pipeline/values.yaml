@@ -24,6 +24,8 @@ defaults:
   serviceAccountName: default
 
   instructor:
+    gcpProject: teknoir
+    gcpLocation: us-central1
     model: "gemini-2.5-flash"
     prompt: "Describe the following scene in detail, including objects, actions, environment, and any notable features."
 
