@@ -45,4 +45,7 @@ data:
   # Triton Inference Server
   TRITON_SERVER_URL: "{{ default $.Values.defaults.triton.uri (default (dict "uri" $.Values.defaults.triton.uri) .triton).uri }}"
 
+  # Re Identification Matching service
+  REID_MATCHING_SERVICE_URL: "{{ default $.Values.defaults.reIdMatchingService.url (default (dict "url" $.Values.defaults.reIdMatchingService.url) .reIdMatchingService).url }}"
+
 {{- end }}

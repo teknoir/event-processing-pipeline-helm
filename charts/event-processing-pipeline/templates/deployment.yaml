@@ -37,6 +37,11 @@ spec:
                 secretKeyRef:
                   name: {{ default $.Values.defaults.mongodbSecretKeyRef.name (default (dict "name" $.Values.defaults.mongodbSecretKeyRef.name) .mongodbSecretKeyRef).name }}
                   key: {{ default $.Values.defaults.mongodbSecretKeyRef.key (default (dict "key" $.Values.defaults.mongodbSecretKeyRef.key) .mongodbSecretKeyRef).key }}
+            - name: REID_MONGODB_URI
+              valueFrom:
+                secretKeyRef:
+                  name: {{ default $.Values.defaults.reIdMongodbSecretKeyRef.name (default (dict "name" $.Values.defaults.reIdMongodbSecretKeyRef.name) .reIdMongodbSecretKeyRef).name }}
+                  key: {{ default $.Values.defaults.reIdMongodbSecretKeyRef.key (default (dict "key" $.Values.defaults.reIdMongodbSecretKeyRef.key) .reIdMongodbSecretKeyRef).key }}
           resources:
             {{- toYaml (default $.Values.defaults.resources .resources) | nindent 12 }}
 {{- end }}
