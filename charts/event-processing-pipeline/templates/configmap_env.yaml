@@ -23,12 +23,6 @@ data:
   APP_NAME: "{{ default $.Values.defaults.appName .appName }}"
   APP_VERSION: "{{ default $.Values.defaults.appVersion .appVersion }}"
 
-  # Instructor
-  INSTRUCTOR_GCP_PROJECT: "{{ default $.Values.defaults.instructor.gcpProject (default (dict "gcpProject" $.Values.defaults.instructor.gcpProject) .instructor).gcpProject }}"
-  INSTRUCTOR_GCP_LOCATION: "{{ default $.Values.defaults.instructor.gcpLocation (default (dict "gcpLocation" $.Values.defaults.instructor.gcpLocation) .instructor).gcpLocation }}"
-  INSTRUCTOR_MODEL: "{{ default $.Values.defaults.instructor.model (default (dict "model" $.Values.defaults.instructor.model) .instructor).model }}"
-  INSTRUCTOR_PROMPT: "{{ default $.Values.defaults.instructor.prompt (default (dict "prompt" $.Values.defaults.instructor.prompt) .instructor).prompt }}"
-
   # MQTT
   MQTT_SERVICE_HOST: "{{ default $.Values.defaults.mqtt.broker (default (dict "broker" $.Values.defaults.mqtt.broker) .mqtt).broker }}"
   MQTT_SERVICE_PORT: "{{ default $.Values.defaults.mqtt.port (default (dict "port" $.Values.defaults.mqtt.port) .mqtt).port }}"
@@ -46,11 +40,10 @@ data:
   TRITON_SERVER_URL: "{{ default $.Values.defaults.triton.uri (default (dict "uri" $.Values.defaults.triton.uri) .triton).uri }}"
 
   # Re Identification Matching service
-  REID_MATCHING_SERVICE_URL: "{{ default $.Values.defaults.reIdMatchingService.url (default (dict "url" $.Values.defaults.reIdMatchingService.url) .reIdMatchingService).url }}"
-
-  REID_VISUAL_ATTR_PROMPT_NAME: "{{ default $.Values.defaults.reIdMatchingService.attrPromptName (default (dict "url" $.Values.defaults.reIdMatchingService.attrPromptName) .reIdMatchingService).attrPromptName }}"
-  REID_VISUAL_ATTR_RESPONSE_MODEL: "{{ default $.Values.defaults.reIdMatchingService.attrResponseModel (default (dict "url" $.Values.defaults.reIdMatchingService.attrResponseModel) .reIdMatchingService).attrResponseModel }}"
-  REID_VISUAL_ATTR_MODEL_NAME: "{{ default $.Values.defaults.reIdMatchingService.attrModelName (default (dict "url" $.Values.defaults.reIdMatchingService.attrModelName) .reIdMatchingService).attrModelName }}"
+  REID_MATCHING_SERVICE_URL: "{{ default $.Values.defaults.reId.matchingServiceURL (default (dict "url" $.Values.defaults.reId.matchingServiceURL) .reId).matchingServiceURL }}"
+  REID_VISUAL_ATTR_PROMPT_NAME: "{{ default $.Values.defaults.reId.visualAttrPromptName (default (dict "url" $.Values.defaults.reId.visualAttrPromptName) .reId).visualAttrPromptName }}"
+  REID_VISUAL_ATTR_RESPONSE_MODEL: "{{ default $.Values.defaults.reId.visualAttrResponseModel (default (dict "url" $.Values.defaults.reId.visualAttrResponseModel) .reId).visualAttrResponseModel }}"
+  REID_VISUAL_ATTR_MODEL_NAME: "{{ default $.Values.defaults.reId.visualAttrModelName (default (dict "url" $.Values.defaults.reId.visualAttrModelName) .reId).visualAttrModelName }}"
 
   FACE_COVER_LLM_PROMPT_NAME: "{{ default $.Values.defaults.faceCoverStream.faceCoverPromptName (default (dict "url" $.Values.defaults.faceCoverStream.faceCoverPromptName) .faceCoverStream).faceCoverPromptName }}"
   FACE_COVER_LLM_RESPONSE_MODEL: "{{ default $.Values.defaults.faceCoverStream.faceCoverResponseModel (default (dict "url" $.Values.defaults.faceCoverStream.faceCoverResponseModel) .faceCoverStream).faceCoverResponseModel }}"

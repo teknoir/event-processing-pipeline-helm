@@ -23,12 +23,6 @@ defaults:
 
   serviceAccountName: default
 
-  instructor:
-    gcpProject: teknoir
-    gcpLocation: us-central1
-    model: "gemini-2.5-flash"
-    prompt: "Describe the following scene in detail, including objects, actions, environment, and any notable features."
-
   mqtt:
     # MQTT broker
     broker: mqtt
@@ -49,8 +43,11 @@ defaults:
     name: mongodb-credentials
     key: service_uri
 
-  reIdMatchingService:
-    url: http://reid-matching-service:80
+  reId:
+    matchingServiceURL: http://matching-service:80
+    visualAttrPromptName: reid-visual-attributes
+    visualAttrResponseModel: reid_visual_attribute_classifier
+    visualAttrModelName: gemini-2.5-flash
 
   reIdMongodbSecretKeyRef:
     name: re-id-mongo
