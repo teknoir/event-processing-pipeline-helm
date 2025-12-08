@@ -52,3 +52,8 @@ defaults:
   reIdMongodbSecretKeyRef:
     name: re-id-mongo
     key: uri
+
+  faceCoverStream:
+    faceCoverPromptName: face-covering-verification
+    faceCoverResponseModel: face_cover_classifier
+    faceCoverModelName: gemini-2.5-flash

@@ -45,6 +45,7 @@ data:
   REID_VISUAL_ATTR_RESPONSE_MODEL: "{{ default $.Values.defaults.reId.visualAttrResponseModel (default (dict "url" $.Values.defaults.reId.visualAttrResponseModel) .reId).visualAttrResponseModel }}"
   REID_VISUAL_ATTR_MODEL_NAME: "{{ default $.Values.defaults.reId.visualAttrModelName (default (dict "url" $.Values.defaults.reId.visualAttrModelName) .reId).visualAttrModelName }}"
 
+  # Face Cover LLM service
   FACE_COVER_LLM_PROMPT_NAME: "{{ default $.Values.defaults.faceCoverStream.faceCoverPromptName (default (dict "url" $.Values.defaults.faceCoverStream.faceCoverPromptName) .faceCoverStream).faceCoverPromptName }}"
   FACE_COVER_LLM_RESPONSE_MODEL: "{{ default $.Values.defaults.faceCoverStream.faceCoverResponseModel (default (dict "url" $.Values.defaults.faceCoverStream.faceCoverResponseModel) .faceCoverStream).faceCoverResponseModel }}"
   FACE_COVER_LLM_MODEL_NAME: "{{ default $.Values.defaults.faceCoverStream.faceCoverModelName (default (dict "url" $.Values.defaults.faceCoverStream.faceCoverModelName) .faceCoverStream).faceCoverModelName }}"
