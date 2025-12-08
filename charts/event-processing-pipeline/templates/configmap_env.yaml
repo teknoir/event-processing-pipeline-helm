@@ -48,4 +48,12 @@ data:
   # Re Identification Matching service
   REID_MATCHING_SERVICE_URL: "{{ default $.Values.defaults.reIdMatchingService.url (default (dict "url" $.Values.defaults.reIdMatchingService.url) .reIdMatchingService).url }}"
 
+  REID_VISUAL_ATTR_PROMPT_NAME: "{{ default $.Values.defaults.reIdMatchingService.attrPromptName (default (dict "url" $.Values.defaults.reIdMatchingService.attrPromptName) .reIdMatchingService).attrPromptName }}"
+  REID_VISUAL_ATTR_RESPONSE_MODEL: "{{ default $.Values.defaults.reIdMatchingService.attrResponseModel (default (dict "url" $.Values.defaults.reIdMatchingService.attrResponseModel) .reIdMatchingService).attrResponseModel }}"
+  REID_VISUAL_ATTR_MODEL_NAME: "{{ default $.Values.defaults.reIdMatchingService.attrModelName (default (dict "url" $.Values.defaults.reIdMatchingService.attrModelName) .reIdMatchingService).attrModelName }}"
+
+  FACE_COVER_LLM_PROMPT_NAME: "{{ default $.Values.defaults.faceCoverStream.faceCoverPromptName (default (dict "url" $.Values.defaults.faceCoverStream.faceCoverPromptName) .faceCoverStream).faceCoverPromptName }}"
+  FACE_COVER_LLM_RESPONSE_MODEL: "{{ default $.Values.defaults.faceCoverStream.faceCoverResponseModel (default (dict "url" $.Values.defaults.faceCoverStream.faceCoverResponseModel) .faceCoverStream).faceCoverResponseModel }}"
+  FACE_COVER_LLM_MODEL_NAME: "{{ default $.Values.defaults.faceCoverStream.faceCoverModelName (default (dict "url" $.Values.defaults.faceCoverStream.faceCoverModelName) .faceCoverStream).faceCoverModelName }}"
+
 {{- end }}
