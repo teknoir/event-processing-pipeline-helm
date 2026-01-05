@@ -44,7 +44,7 @@ defaults:
     key: service_uri
 
   reId:
-    matchingServiceURL: http://matching-service
+    matchingServiceURL: http://matching-service/match
     visualAttrPromptName: reid-visual-attributes
     visualAttrResponseModel: reid_visual_attribute_classifier
     visualAttrModelName: gemini-2.5-flash
