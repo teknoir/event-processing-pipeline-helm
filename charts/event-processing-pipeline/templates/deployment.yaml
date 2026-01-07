@@ -17,6 +17,11 @@ spec:
         app: stream-{{ .stream }}
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/configmap_env.yaml") $ | sha256sum }}
+{{- if (default $.Values.defaults.enablePromMetricsScraping .enablePromMetricsScraping) }}
+        prometheus.io/path: /metrics
+        prometheus.io/port: "8000"
+        prometheus.io/scrape: "true"
+{{- end }}
     spec:
       serviceAccountName: "{{ default $.Values.defaults.serviceAccountName .serviceAccountName }}"
       containers:
