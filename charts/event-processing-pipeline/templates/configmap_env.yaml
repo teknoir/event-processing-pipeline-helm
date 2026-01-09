@@ -40,6 +40,7 @@ data:
   TRITON_SERVER_URL: "{{ default $.Values.defaults.triton.uri (default (dict "uri" $.Values.defaults.triton.uri) .triton).uri }}"
 
   # Re Identification Matching service
+  REID_PERSON_DISABLE_MATCHING: "{{ default $.Values.defaults.reId.disableMatching (default (dict "disableMatching" $.Values.defaults.reId.disableMatching) .reId).disableMatching }}"
   REID_MATCHING_SERVICE_URL: "{{ default $.Values.defaults.reId.matchingServiceURL (default (dict "url" $.Values.defaults.reId.matchingServiceURL) .reId).matchingServiceURL }}"
   REID_VISUAL_ATTR_PROMPT_NAME: "{{ default $.Values.defaults.reId.visualAttrPromptName (default (dict "url" $.Values.defaults.reId.visualAttrPromptName) .reId).visualAttrPromptName }}"
   REID_VISUAL_ATTR_RESPONSE_MODEL: "{{ default $.Values.defaults.reId.visualAttrResponseModel (default (dict "url" $.Values.defaults.reId.visualAttrResponseModel) .reId).visualAttrResponseModel }}"
